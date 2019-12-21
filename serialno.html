@@ -1,0 +1,69 @@
+<td>S.NO</td>
+<td style="width:2%" id="ty1s0">1/</td>
+
+
+
+<button class="btn btn-success" onclick="copyRow();update()">Copy</button>
+<button class="btn btn-success" onclick="addRow();update()">Add</button>
+<button type="button" id="adds" class="btn btn-primary" onclick="addItem()">Add item</button>
+<script>
+ function copyRow() {
+          //check is there any rows in that item
+          if (count > 0) {
+
+            count++;
+
+            //get previous row values
+            var l = $('#ty' + t + 'l' + (c - 1)).val();
+            var w = $('#ty' + t + 'w' + (c - 1)).val();
+            var l1 = $('#ty' + t + 'l1-' + (c - 1)).val();
+            var w1 = $('#ty' + t + 'w1-' + (c - 1)).val();
+            var l2 = $('#ty' + t + 'l2-' + (c - 1)).val();
+            var w2 = $('#ty' + t + 'w2-' + (c - 1)).val();
+            var l3 = $('#ty' + t + 'l3-' + (c - 1)).val();
+            var w3 = $('#ty' + t + 'w3-' + (c - 1)).val();
+            var area = $('#ty' + t + 'a' + (c - 1)).text();
+
+
+
+            var markup = '<tr id="row-' + c + '" contenteditable="true"><td id="ty' + t + 's' + c + '">' + count +
+              '/</td></tr>
+
+
+
+function addRow() {
+          for (var h = 1; h <= t; h++) {
+            var name = $("#ty" + h).text();
+            if (name == "") {
+              alert("item" + h + " name is empty");
+            }
+
+          }
+
+          count++;
+
+          var markup = '<tr id="row-' + c + '"><td contenteditable="true" id="ty' + t + 's' + c + '">' + count +
+            '/</td></tr>
+
+
+   var t = 1;
+
+        function addItem() {
+          $("#total").val('0 sqft');
+          var sum = 0;
+          for (var h = 0; h < c; h++) {
+            var a = $("#ty" + t + "a" + h).text();
+            var b = Number(a);
+            sum += b;
+          }
+          var totalar = sum.toFixed(2);
+          var z = t;
+          t++;
+
+          var item = '<tr style="height:30px"><td contenteditable="true" id="tyt' + z + '"colspan="14">TOTAL:' + totalar +
+            '</td></tr><tr><th colspan="6" style="height:50px">Colour</th><th colspan="8"  ><input oninput="update()"type= "text" id="ty' +
+            t +
+            '" placeholder ="item colour"> </th></tr><tr ><td>S.NO</td><td colspan="3">Sizes</td><td colspan="3">Less1</td><td colspan="3">Less2</td><td colspan="3">Less3</td><td >Area</td></tr><tr id="row-' +
+            c + '"><td contenteditable="true" id="ty' + t + 's' + c +
+            '">1/</td></tr>
+        </script>
